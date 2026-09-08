@@ -1,0 +1,31 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "fastmsa"
+version = "0.1.0"
+description = "Bulk MSAs from the AlphaFold 3 database set, at MMseqs2 speed"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+keywords = ["alphafold", "msa", "mmseqs2", "bioinformatics", "protein-structure"]
+classifiers = [
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+fastmsa = "fastmsa.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["fastmsa"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
